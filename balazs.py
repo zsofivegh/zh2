@@ -53,7 +53,7 @@ if log_or_sign == 'S':
 
 elif log_or_sign == 'L':
     login_proc = True
-    username = login(login_proc)
+    current_user = login(login_proc)
 
 else:
     print('Goodbye!')
@@ -67,9 +67,10 @@ else:
 #        kilepsz = False
 
 #print('# program vege'# )
-print(username)
-quitting = 0
-while quitting != 5:
-    action = int(input('Welcome! Please choose what you want to do:\n1 - post an image (copy the URL)\n2 - post a text\n3 - view friends\n4 - view posts from friends\n5 - quit\n'))
+action = 0
+while action != 5:
+    action = int(input('Welcome ' + current_user + '! Please choose what you want to do:\n1 - post an image (copy the URL)\n2 - post a text\n3 - view friends\n4 - view posts from friends\n5 - quit\n'))
     if action == 1:
-        link_sharing()
+        link = input('link: ')
+        comment = input('commmment: ')
+        link_sharing(current_user,link, comment)
