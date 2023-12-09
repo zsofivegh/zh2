@@ -1,13 +1,11 @@
-registrated = False
-log_or_sign = input('Hello! This is SocialApp!\npress S to sign in\nor press L to log in, if you have an account registrated!\n(press any other key to leave)\n')
-
-if log_or_sign == 'S':
+def signin(registrated):
+    print('SIGNING IN')
     while not registrated:
-        name = input('username: ')
+        name = input('\nusername: ')
         found = False
         with open('users.txt', 'r') as file:
             for line in file:
-                name_in_line, password_in_line = line.strip().split(';')
+                name_in_line = line.strip().split(';')[0]
                 if name_in_line == name:
                     print('This username is taken, choose something else!')
                     found = True
@@ -17,27 +15,41 @@ if log_or_sign == 'S':
             passwd = input('password: ')
             with open('users.txt', 'a') as file:
                 file.write('\n' + name + ';' + passwd)
-                print('You are successfully registrated!')
-                registrated = True
+            print('You are successfully registrated!')
+            registrated = True
+            login(registrated)
 
-elif log_or_sign == 'L':
-    while not registrated:
+def login(login_proc):
+    print('LOGGING IN')
+    while login_proc:
         name = input('\nusername: ')
+        found = False
         with open('users.txt', 'r') as file:
             for line in file:
                 name_in_line, password_in_line = line.strip().split(';')
                 if name_in_line == name:
+                    found = True
                     password = input('password: ')
                     if password_in_line == password:
                         print("Successful login!")
-                        registrated = True
+                        login_proc = False
                         break
                     else:
                         print("Wrong password! Try login again!")
                         break
-                else:
-                    print('This user does not exist!')
-                    break
+            
+        if not found:
+            print('This user does not exist!')
+
+log_or_sign = input('Hello! This is SocialApp!\npress S to sign in\nor press L to log in, if you have an account registrated!\n(press any other key to leave)\n')
+
+if log_or_sign == 'S':
+    registrated = False
+    signin(registrated)
+
+elif log_or_sign == 'L':
+    login_proc = True
+    login(login_proc)
 
 else:
     print('Goodbye!')
