@@ -1,3 +1,6 @@
+from zsofi import link_sharing
+
+
 def signin(registrated):
     print('SIGNING IN')
     while not registrated:
@@ -33,6 +36,7 @@ def login(login_proc):
                     if password_in_line == password:
                         print("Successful login!")
                         login_proc = False
+                        return name_in_line
                         break
                     else:
                         print("Wrong password! Try login again!")
@@ -49,7 +53,7 @@ if log_or_sign == 'S':
 
 elif log_or_sign == 'L':
     login_proc = True
-    login(login_proc)
+    username = login(login_proc)
 
 else:
     print('Goodbye!')
@@ -63,4 +67,9 @@ else:
 #        kilepsz = False
 
 #print('# program vege'# )
-
+print(username)
+quitting = 0
+while quitting != 5:
+    action = int(input('Welcome! Please choose what you want to do:\n1 - post an image (copy the URL)\n2 - post a text\n3 - view friends\n4 - view posts from friends\n5 - quit\n'))
+    if action == 1:
+        link_sharing()
