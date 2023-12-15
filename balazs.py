@@ -1,5 +1,6 @@
 from zsofi import link_sharing
-
+from zsofi import text_sharing
+from list import list_my_friends
 
 def signin(registrated):
     print('SIGNING IN')
@@ -58,19 +59,17 @@ elif log_or_sign == 'L':
 else:
     print('Goodbye!')
 
-#info = 1
-#kilepsz=True
-#while(kilepsz):
-#    info = int(input('# Hi Norbi! Please choose, what would you like to do: \n(1) - make a post\n(2) - view friends\n(3) - see friend's posts\n(4) - quit '# ))
-#    if info == 1:
-#        print('# most az 1 et valasztotasd'# )
-#        kilepsz = False
-
-#print('# program vege'# )
 action = 0
 while action != 5:
     action = int(input('Welcome ' + current_user + '! Please choose what you want to do:\n1 - post an image (copy the URL)\n2 - post a text\n3 - view friends\n4 - view posts from friends\n5 - quit\n'))
     if action == 1:
         link = input('link: ')
-        comment = input('commmment: ')
-        link_sharing(current_user,link, comment)
+        comment = input('comment: ')
+        link_sharing(current_user, link, comment)
+    elif action == 3:
+        print("\nThe list of my friends: ")
+        list_my_friends("friends.txt")
+        print("\n")
+    elif action == 2:
+        text_sharing(current_user,"IDENEMTUDOM")
+        
