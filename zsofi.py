@@ -19,11 +19,11 @@ def emotion_statement(text, positive, negative):      #erzelem megallapitas
     words = text.split()
     positive_count = 0
     for word in words:
-        if words in positive:
+        if word in positive:
             positive_count += 1
     negative_count = 0
     for word in words:
-        if words in negative:
+        if word in negative:
             negative_count += 1
 
     if positive_count > negative_count:
@@ -64,4 +64,4 @@ def text_sharing(username, text):
     with open("contents.txt", "a") as c:
         c.write(content)
 
-text_sharing("Zsofi", "These pictures are really beautiful!")
+text_sharing("Zsofi", "The turkey smells terrible .")
