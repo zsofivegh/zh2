@@ -1,6 +1,5 @@
 from zsofi import link_sharing
 from zsofi import text_sharing
-from list import list_my_friends
 
 def signin(registrated):
     print('SIGNING IN')
@@ -68,8 +67,39 @@ while action != 5:
         link_sharing(current_user, link, comment)
     elif action == 3:
         print("\nThe list of my friends: ")
-        list_my_friends("friends.txt")
-        print("\n")
+        with open("friends.txt", "r+") as friendlist:
+                list_of_friends = friendlist.readlines()
+                for i in list_of_friends:
+                    print(i.strip())
+        list_of_friends=[]
+        shutdown = 1
+        add_or_delete = input("\n(A)dd or (D)elete users or press any button to leave: ").upper()
+        while shutdown == 1:
+            if add_or_delete == 'A':
+                friends_name = input("Type your new friend's name: ")
+                with open("friends.txt","a") as c:
+                    c.write(friends_name)
+                    print(f"{friends_name} successfully added to your friend list! \n")
+                shutdown = 0
+            elif add_or_delete == "D":
+                def delete_user(username, filename):
+                    with open(filename, 'r') as file:
+                        lines = file.readlines()
+                            
+                    with open(filename, 'w') as file:
+                        for line in lines:
+                            if line.strip() != username:
+                                file.write(line)
+                delete_user_name = input("Write the name of your friend whom you want to delete: ")
+                delete_user(delete_user_name, 'friends.txt')
+                print(f"{delete_user_name} has been deleted from your friends list.\n")
+            shutdown = 0
+            
+                    
+
+                            
+                    
+                
     elif action == 2:
         text_sharing(current_user,"IDENEMTUDOM")
         
