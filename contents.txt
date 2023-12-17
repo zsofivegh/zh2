@@ -1,9 +1,0 @@
-hofigeza;2023-12-17;https://www.youtube.com/watch?v=VAT6fzfqLpc&pp=ygUkaG9maSBnw6l6YSBrZWxsIGVneSBraXMgw6FyYW1zesO8bmV0;Relax!);neutral
-hofigeza;2023-12-17;Have a holly jolly Christmas!;positive
-hofigeza;2023-12-17;I had a bad day, tragic.;negative
-hofigeza;2023-12-17;I had a very bad day, tragic.;negative
-paloczibalazs;2023-12-17;https://www.google.hu/images/;It is a shiny day!);positive
-paloczibalazs;2023-12-17;I feel well now!;positive
-paloczibalazs;2023-12-17;valami.com;such a shiny day!);positive
-paloczibalazs;2023-12-17;here we are.;neutral
-None;2023-12-17;Happy new year!!;positive
